@@ -1,1 +1,5 @@
 /lemmings.iml
+/environments/dev/network/terraform.tfstate
+/environments/dev/network/terraform.tfstate.backup
+/environments/dev/ec2-centos/terraform.tfstate
+/environments/dev/ec2-centos/terraform.tfstate.backup
