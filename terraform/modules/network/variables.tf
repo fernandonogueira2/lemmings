@@ -5,17 +5,40 @@ variable "create_vpc" {
   default     = true
 }
 
-variable "name" {
+variable "vpc_name" {
   description = "Name to be used on all the resources as identifier"
   type        = string
   default     = ""
 }
 
+variable "igw_name" {
+  description = "Name to be used on all the resources as identifier"
+  type        = string
+  default     = ""
+}
 
 variable "cidr" {
   description = "The CIDR block for the VPC. Default value is a valid CIDR, but not acceptable by AWS and should be overridden"
   type        = string
   default     = "0.0.0.0/0"
+}
+
+variable "pb_cidr" {
+  description = "The CIDR block for the Public Subnet. Default value is a valid CIDR, but not acceptable by AWS and should be overridden"
+  type = string
+  default = "0.0.0.0/0"
+}
+
+variable "pb_subname" {
+  description = "The public subnet to connect to VPC1"
+  type        = string
+  default     = "pb_subnet1"
+}
+
+variable "rt_name" {
+  description = "The name of the public subnet Route Table"
+  type        = string
+  default     = "rt_name"
 }
 
 variable "instance_tenancy" {
