@@ -31,6 +31,23 @@ resource "aws_subnet" "myPublicSubnet" {
   }
 }
 
+resource "aws_security_group" "allow-ssh" {
+  name = "allow-ssh"
+  description = "Allow ssh inbound traffic"
+  vpc_id = aws_vpc.myVPC1.id
+
+  ingress {
+    from_port = 22
+    to_port = 22
+    protocol = "TCP"
+    cidr_blocks = ["141.168.175.126/32"]
+  }
+
+  tags = {
+    Name = "allow-ssh"
+  }
+}
+
 resource "aws_route_table" "public_rt" {
   vpc_id = aws_vpc.myVPC1.id
   route {

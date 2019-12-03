@@ -22,3 +22,9 @@ variable "ec2name" {
   type        = string
   default     = "myec2"
 }
+
+variable "sec_groups_id" {
+  description = "Security Groups List"
+  type        = string
+  default     = "mySecGroup"
+}
