@@ -40,7 +40,7 @@ resource "aws_security_group" "allow-ssh" {
     from_port = 22
     to_port = 22
     protocol = "TCP"
-    cidr_blocks = ["141.168.175.126/32"]
+    cidr_blocks = [var.mypub_ip_address]
   }
 
   tags = {
@@ -56,7 +56,7 @@ resource "aws_route_table" "public_rt" {
   }
 
   tags  = {
-    Name = var.rt_name
+    Name = var.pb_rt_name
   }
 }
 

@@ -19,7 +19,7 @@ resource "aws_instance" "ec2-a" {
   subnet_id = var.subnet_id
   associate_public_ip_address = var.assoc_pb_ip
   key_name = "lemmings"
-  security_groups = ["${var.sec_groups_id}"]
+  security_groups = [var.sec_groups_id]
 
   tags = {
     Name = var.ec2name

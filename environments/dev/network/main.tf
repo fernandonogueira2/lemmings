@@ -5,12 +5,9 @@ provider "aws" {
 module "network" {
   source = "../../../terraform/modules/network"
 
-  vpc_name = "myVPC1"
   cidr = "10.200.0.0/16"
-  igw_name = "myIGW1"
-  pb_subname = "myPublicSubnet"
   pb_cidr = "10.200.0.0/24"
-  rt_name = "pub_subnet_rt"
+  mypub_ip_address = "141.168.175.126/32"
 
   tags = {
     Terraform = "true"

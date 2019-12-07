@@ -8,11 +8,17 @@ variable "create_vpc" {
 variable "vpc_name" {
   description = "Name to be used on all the resources as identifier"
   type        = string
-  default     = ""
+  default     = "myVPC1"
 }
 
 variable "igw_name" {
   description = "Name to be used on all the resources as identifier"
+  type        = string
+  default     = "myIGW1"
+}
+
+variable "mypub_ip_address" {
+  description = "Inform you public IP address here if using a router thats the one you need"
   type        = string
   default     = ""
 }
@@ -32,13 +38,13 @@ variable "pb_cidr" {
 variable "pb_subname" {
   description = "The public subnet to connect to VPC1"
   type        = string
-  default     = "pb_subnet1"
+  default     = "myPublicSubnet"
 }
 
-variable "rt_name" {
+variable "pb_rt_name" {
   description = "The name of the public subnet Route Table"
   type        = string
-  default     = "rt_name"
+  default     = "pub_subnet_rt"
 }
 
 variable "instance_tenancy" {

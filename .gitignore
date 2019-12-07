@@ -3,3 +3,5 @@
 /environments/dev/network/terraform.tfstate.backup
 /environments/dev/ec2-centos/terraform.tfstate
 /environments/dev/ec2-centos/terraform.tfstate.backup
+/environments/dev/ec2-amz-linux-2/terraform.tfstate
+/environments/dev/ec2-amz-linux-2/terraform.tfstate.backup
