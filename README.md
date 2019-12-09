@@ -25,7 +25,7 @@ terraform init
 terraform apply
 
 To destroy all resources, from the same path run:
-terraform delete 
+terraform destroy 
 
 Feel free to contact me at any time, remember this is just an exercise and might not suit for production usage.
 
