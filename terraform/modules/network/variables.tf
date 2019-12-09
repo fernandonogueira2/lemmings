@@ -1,4 +1,3 @@
-
 variable "create_vpc" {
   description = "Controls if VPC should be created (it affects almost all resources)"
   type        = bool
@@ -26,13 +25,19 @@ variable "mypub_ip_address" {
 variable "cidr" {
   description = "The CIDR block for the VPC. Default value is a valid CIDR, but not acceptable by AWS and should be overridden"
   type        = string
-  default     = "0.0.0.0/0"
+  default     = ""
 }
 
 variable "pb_cidr" {
   description = "The CIDR block for the Public Subnet. Default value is a valid CIDR, but not acceptable by AWS and should be overridden"
   type = string
-  default = "0.0.0.0/0"
+  default = ""
+}
+
+variable "pv_cidr" {
+  description = "The CIDR block for the private Subnet. Default value is a valid CIDR, but not acceptable by AWS and should be overridden"
+  type = string
+  default = ""
 }
 
 variable "pb_subname" {
@@ -41,10 +46,22 @@ variable "pb_subname" {
   default     = "myPublicSubnet"
 }
 
+variable "pv_subname" {
+  description = "The private subnet to connect to VPC1"
+  type        = string
+  default     = "myPrivateSubnet"
+}
+
 variable "pb_rt_name" {
   description = "The name of the public subnet Route Table"
   type        = string
   default     = "pub_subnet_rt"
+}
+
+variable "pv_rt_name" {
+  description = "The name of the private subnet Route Table"
+  type        = string
+  default     = "prv_subnet_rt"
 }
 
 variable "instance_tenancy" {
@@ -82,3 +99,10 @@ variable "vpc_tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "pv_instance_id" {
+  description = "Private Instance ID"
+  type        = string
+  default     = "myID"
+}
+

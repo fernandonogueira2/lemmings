@@ -1,5 +1,5 @@
 variable "region" {
-  description = "Controls if VPC should be created (it affects almost all resources)"
+  description = "Region where resources will be created"
   type        = string
   default     = "ap-southeast-2"
 }
