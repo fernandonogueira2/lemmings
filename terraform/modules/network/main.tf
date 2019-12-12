@@ -84,6 +84,14 @@ resource "aws_security_group" "allow-ssh-pv" {
     to_port = 0
   }
 
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = [
+      "0.0.0.0/0"]
+  }
+
   tags = {
     Name = "allow-ssh-pv"
   }
@@ -103,6 +111,10 @@ resource "aws_route_table" "public_rt" {
 
 resource "aws_route_table" "private_rt" {
   vpc_id = aws_vpc.myVPC1.id
+  route {
+    cidr_block = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.myNatGateway.id
+  }
 
   tags  = {
     Name = var.pv_rt_name
@@ -119,3 +131,27 @@ resource "aws_route_table_association" "pv_route" {
   route_table_id = aws_route_table.private_rt.id
 }
 
+resource "aws_eip" "myNatGateway" {
+  vpc = true
+
+  depends_on = [
+    aws_internet_gateway.myIGW1
+    ]
+
+  tags = {
+    Name = "natGateway-eip"
+  }
+}
+
+resource "aws_nat_gateway" "myNatGateway" {
+  allocation_id = aws_eip.myNatGateway.id
+  subnet_id = aws_subnet.myPublicSubnet.id
+
+  depends_on = [
+  aws_internet_gateway.myIGW1
+  ]
+
+  tags = {
+    Name = "myNatGateway"
+  }
+}
